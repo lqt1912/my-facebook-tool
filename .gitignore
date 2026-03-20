@@ -4,10 +4,11 @@ configs/facebook_config.json
 *.env
 .env.local
 .env.*.local
+*config.json
 
 # Python cache
 __pycache__/
-*.pyc
+*.pycjson
 *.pyo
 *.pyd
 .Python
