@@ -1,0 +1,205 @@
+{
+  "openapi": "3.0.0",
+  "info": {
+    "title": "Facebook Graph API v25.0",
+    "description": "OpenAPI specification for Facebook Graph API v25.0",
+    "version": "1.0.0",
+    "contact": {
+      "name": "Facebook Developer",
+      "url": "https://developers.facebook.com/docs/graph-api"
+    }
+  },
+  "servers": [
+    {
+      "url": "https://graph.facebook.com/v25.0",
+      "description": "Facebook Graph API v25.0"
+    }
+  ],
+  "paths": {
+    "/me": {
+      "get": {
+        "summary": "Get User Profile",
+        "description": "Get basic user profile information",
+        "parameters": [
+          {
+            "name": "fields",
+            "in": "query",
+            "description": "Fields to return",
+            "schema": {
+              "type": "string",
+              "default": "id,name,email"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Successful response"
+          }
+        },
+        "security": [
+          {
+            "facebook_access_token": []
+          }
+        ]
+      }
+    },
+    "/me/accounts": {
+      "get": {
+        "summary": "Get User Pages",
+        "description": "Get list of pages the user manages",
+        "responses": {
+          "200": {
+            "description": "Successful response"
+          }
+        },
+        "security": [
+          {
+            "facebook_access_token": []
+          }
+        ]
+      }
+    },
+    "/{page_id}/posts": {
+      "get": {
+        "summary": "Get Page Posts",
+        "description": "Get posts from a specific page",
+        "parameters": [
+          {
+            "name": "page_id",
+            "in": "path",
+            "required": true,
+            "schema": {
+              "type": "string"
+            },
+            "example": "970569006149232"
+          },
+          {
+            "name": "limit",
+            "in": "query",
+            "description": "Number of posts to return",
+            "schema": {
+              "type": "integer",
+              "default": 10
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Successful response"
+          }
+        },
+        "security": [
+          {
+            "facebook_access_token": []
+          }
+        ]
+      }
+    },
+    "/{page_id}/feed": {
+      "post": {
+        "summary": "Post to Page",
+        "description": "Create a new post on a page",
+        "parameters": [
+          {
+            "name": "page_id",
+            "in": "path",
+            "required": true,
+            "schema": {
+              "type": "string"
+            },
+            "example": "970569006149232"
+          }
+        ],
+        "requestBody": {
+          "required": true,
+          "content": {
+            "application/json": {
+              "schema": {
+                "type": "object",
+                "properties": {
+                  "message": {
+                    "type": "string",
+                    "example": "Hello from Bruno!"
+                  },
+                  "link": {
+                    "type": "string",
+                    "example": "https://example.com"
+                  }
+                }
+              }
+            }
+          }
+        },
+        "responses": {
+          "200": {
+            "description": "Post created successfully"
+          }
+        },
+        "security": [
+          {
+            "facebook_access_token": []
+          }
+        ]
+      }
+    },
+    "/{post_id}/comments": {
+      "get": {
+        "summary": "Get Comments",
+        "description": "Get comments for a specific post",
+        "parameters": [
+          {
+            "name": "post_id",
+            "in": "path",
+            "required": true,
+            "schema": {
+              "type": "string"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Successful response"
+          }
+        },
+        "security": [
+          {
+            "facebook_access_token": []
+          }
+        ]
+      }
+    }
+  },
+  "components": {
+    "securitySchemes": {
+      "facebook_access_token": {
+        "type": "http",
+        "scheme": "bearer",
+        "bearerFormat": "Facebook Access Token"
+      }
+    },
+    "parameters": {
+      "page_id": {
+        "name": "page_id",
+        "in": "path",
+        "required": true,
+        "schema": {
+          "type": "string"
+        },
+        "example": "970569006149232"
+      },
+      "post_id": {
+        "name": "post_id",
+        "in": "path",
+        "required": true,
+        "schema": {
+          "type": "string"
+        }
+      }
+    }
+  },
+  "security": [
+    {
+      "facebook_access_token": []
+    }
+  ]
+}

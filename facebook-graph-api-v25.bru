@@ -1,0 +1,125 @@
+{
+  "version": "1",
+  "name": "Facebook Graph API v25.0",
+  "type": "collection",
+  "items": [
+    {
+      "name": "Get User Profile",
+      "type": "http-request",
+      "request": {
+        "url": "https://graph.facebook.com/v25.0/me",
+        "method": "GET",
+        "headers": [
+          {
+            "name": "Authorization",
+            "value": "Bearer {{access_token}}",
+            "enabled": true
+          }
+        ],
+        "params": [
+          {
+            "name": "fields",
+            "value": "id,name,email",
+            "enabled": true
+          }
+        ]
+      }
+    },
+    {
+      "name": "Get User Pages",
+      "type": "http-request",
+      "request": {
+        "url": "https://graph.facebook.com/v25.0/me/accounts",
+        "method": "GET",
+        "headers": [
+          {
+            "name": "Authorization",
+            "value": "Bearer {{access_token}}",
+            "enabled": true
+          }
+        ]
+      }
+    },
+    {
+      "name": "Get Page Posts",
+      "type": "http-request",
+      "request": {
+        "url": "https://graph.facebook.com/v25.0/{page_id}/posts",
+        "method": "GET",
+        "headers": [
+          {
+            "name": "Authorization",
+            "value": "Bearer {{access_token}}",
+            "enabled": true
+          }
+        ],
+        "params": [
+          {
+            "name": "limit",
+            "value": "10",
+            "enabled": true
+          }
+        ]
+      }
+    },
+    {
+      "name": "Post to Page",
+      "type": "http-request",
+      "request": {
+        "url": "https://graph.facebook.com/v25.0/{page_id}/feed",
+        "method": "POST",
+        "headers": [
+          {
+            "name": "Authorization",
+            "value": "Bearer {{access_token}}",
+            "enabled": true
+          },
+          {
+            "name": "Content-Type",
+            "value": "application/json",
+            "enabled": true
+          }
+        ],
+        "body": {
+          "mode": "json",
+          "json": {
+            "message": "Hello from Bruno!",
+            "link": "https://example.com"
+          }
+        }
+      }
+    },
+    {
+      "name": "Get Comments",
+      "type": "http-request",
+      "request": {
+        "url": "https://graph.facebook.com/v25.0/{post_id}/comments",
+        "method": "GET",
+        "headers": [
+          {
+            "name": "Authorization",
+            "value": "Bearer {{access_token}}",
+            "enabled": true
+          }
+        ]
+      }
+    }
+  ],
+  "variables": [
+    {
+      "name": "access_token",
+      "value": "YOUR_ACCESS_TOKEN_HERE",
+      "enabled": true
+    },
+    {
+      "name": "page_id",
+      "value": "970569006149232",
+      "enabled": true
+    },
+    {
+      "name": "post_id",
+      "value": "POST_ID_HERE",
+      "enabled": true
+    }
+  ]
+}
