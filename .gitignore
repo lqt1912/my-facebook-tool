@@ -1,5 +1,5 @@
 # Config files - DO NOT COMMIT SENSITIVE DATA!
-configs/
+configs/facebook_config.json
 *.config.json
 *.env
 .env.local

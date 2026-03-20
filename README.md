@@ -6,7 +6,8 @@ Công cụ hỗ trợ quản lý Facebook App, tokens, và pages.
 - `facebook-helper-tool.py` - Tool chính (Python script)
 - `facebook-graph-api-v25.bru` - Bruno collection
 - `facebook-graph-api-v25-openapi.json` - OpenAPI specification
-- `configs/facebook_config.json` - File cấu hình (sẽ được tạo tự động)
+- `configs/facebook_config.json` - File cấu hình chính (sẽ được tạo tự động)
+- `configs/facebook_config.example.json` - File cấu hình mẫu
 
 ## 🚀 Cài đặt và chạy
 
@@ -52,6 +53,12 @@ python facebook-helper-tool.py --config my_config.json --menu
 
 ## 🔧 Cấu trúc config file:
 Config file được lưu tại `configs/facebook_config.json`
+
+**Lưu ý quan trọng:** 
+- File `configs/facebook_config.json` đã được ignore khỏi git
+- File `configs/facebook_config.example.json` là mẫu để tham khảo
+- Khi bắt đầu, copy file mẫu: `cp configs/facebook_config.example.json configs/facebook_config.json`
+- Tool sẽ tự động tạo file config nếu chưa tồn tại
 
 ```json
 {

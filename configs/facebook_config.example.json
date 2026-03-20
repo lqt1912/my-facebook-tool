@@ -1,0 +1,9 @@
+{
+  "app_id": "YOUR_APP_ID_HERE",
+  "app_secret": "YOUR_APP_SECRET_HERE",
+  "short_lived_token": "",
+  "long_lived_token": "",
+  "user_id": "",
+  "user_name": "",
+  "pages": {}
+}
