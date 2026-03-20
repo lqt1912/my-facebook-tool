@@ -5,8 +5,8 @@ configs/facebook_config.json
 .env.local
 .env.*.local
 *config.json
-contents/image-contents/*
-contents/text-contents/*
+contents/*
+
 # Python cache
 __pycache__/
 *.pycjson
