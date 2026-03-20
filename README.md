@@ -128,9 +128,46 @@ Khi Long-lived token sắp hết hạn:
 - [Access Tokens Guide](https://developers.facebook.com/docs/facebook-login/access-tokens)
 - [Page Access Tokens](https://developers.facebook.com/docs/pages/access-tokens)
 
+## 🎯 Tính năng mới: Random Content Posting
+
+### 📁 Cấu trúc thư mục Contents
+```
+contents/
+├── text-contents/      # Chứa file text (.txt) - mỗi file là một bài post
+└── image-contents/     # Chứa file ảnh (.jpg, .png, .gif)
+```
+
+### 🎲 Cách sử dụng tính năng mới:
+1. **Thêm nội dung:**
+   - Tạo file `.txt` trong `contents/text-contents/` với nội dung bài post
+   - Đặt file ảnh trong `contents/image-contents/`
+
+2. **Đăng bài ngẫu nhiên:**
+   - Chọn option 8 trong menu: "Đăng bài ngẫu nhiên từ Contents"
+   - Tool sẽ tự động chọn 1 file text và 1 file ảnh ngẫu nhiên
+   - Hiển thị preview và yêu cầu xác nhận trước khi đăng
+
+3. **Kiểm tra thư mục:**
+   - Chọn option 11: "Kiểm tra thư mục Contents"
+   - Xem số lượng file text và ảnh có sẵn
+
+### 📝 Ví dụ file text:
+```txt
+Chào một ngày mới đầy năng lượng! 🌞
+Hãy bắt đầu ngày hôm nay với tinh thần tích cực.
+#PositiveVibes #Motivation #NewDay
+```
+
+### 🖼️ Yêu cầu ảnh:
+- Định dạng: JPG, PNG, GIF
+- Kích thước: Tối đa 4MB (theo Facebook)
+- Tỷ lệ: 1:1 (vuông) hoặc 16:9 (ngang) cho đẹp
+
 ## 🎯 Features roadmap:
+- [x] Random content posting từ thư mục contents
 - [ ] Auto-renew token khi sắp hết hạn
 - [ ] Schedule posts
 - [ ] Analytics dashboard
 - [ ] Multi-user support
 - [ ] Web interface
+- [ ] Auto-generate content với AI

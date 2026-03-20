@@ -1,0 +1,1 @@
+google-drive-sync/check-sync-status.sh
